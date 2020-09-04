@@ -1,0 +1,42 @@
+.heading {
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.button {
+    color:#FFFFFF;
+    background-color:#4eb5f1;
+    border-radius: 2rem;
+    text-align:center;
+    transition: all 0.2s;
+    padding:0.3em 1.2em;
+    margin: auto;
+    display: block;
+    margin-top: 2rem;
+}
+
+.box {
+    width: 50rem;
+    height: 30rem;
+    margin: 2rem auto;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.orange {
+    background-color: orange;
+}

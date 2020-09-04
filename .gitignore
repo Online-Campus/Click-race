@@ -8,6 +8,7 @@
 logs
 **/*.backup.*
 **/*.back.*
+package-locj.json
 
 node_modules
 bower_components
