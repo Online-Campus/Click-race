@@ -1,0 +1,17 @@
+.grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+}
+
+.element {
+    height: 3rem;
+    cursor: pointer;
+    border: solid black;
+    text-align: center;
+}
+
+.info {
+    text-align: center;
+    margin: 2rem;
+}
