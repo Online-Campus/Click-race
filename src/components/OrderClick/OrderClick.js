@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './OrderClick.css'
 
-const maxGames = 2
+const maxGames = 3
 
 class OrderClick extends Component {
     state  = {
@@ -24,16 +24,14 @@ class OrderClick extends Component {
         const { list } = this.state
 
         if (this.state.expected === list[index]) {
-            this.setState(prevState => ({
-                expected: prevState.expected+1
-            }))
+            this.setState({
+                expected: list[ Math.floor(Math.random()*8) ],
+            })
          } else {
             alert('Wrong, Penalty = 1s')
             this.penalise()
          }
-        if(this.state.expected == 9) {
-            this.endgame(false);
-        }
+        this.endgame()
     }
 
     shuffle = arr => arr
@@ -41,14 +39,10 @@ class OrderClick extends Component {
   .sort((a, b) => a[0] - b[0])
   .map(a => a[1]);
 
-    start = () => {
-        this.startgame() 
-    }
-
     startgame = () => {
         this.setState(prevState => ({
             list: this.shuffle(this.state.list),
-            expected: 1,
+            expected: this.state.list[ Math.floor(Math.random()*8) ],
             start_time: new Date(),
             index: prevState.index+1,
         }), () => {this.setState({
@@ -64,7 +58,10 @@ class OrderClick extends Component {
             if(this.state.index  == maxGames) {
                 alert('Total time = ' + this.state.total_time + 'ms')
                 this.setState({
-                    visible: false
+                    visible: false,
+                    start_time: new Date(),
+                    total_time: 0,
+                    index: 0
                 })
             } else {
                 this.startgame()
@@ -91,7 +88,7 @@ class OrderClick extends Component {
                     </div>
                 </div>
                 }
-                {!this.state.visible && <button className="button" onClick={this.start}>
+                {!this.state.visible && <button className="button" onClick={this.startgame}>
                     Start the game !!
                 </button> }
             </div>
