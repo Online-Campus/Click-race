@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
+import { COLORS } from '../utils/utils'
 import './color_game.css';
-
-const colors = ["yellow", "green", "blue", "pink", "orange"];
-
 
 class ColorGame extends Component {
     constructor(props) {
@@ -23,7 +21,7 @@ class ColorGame extends Component {
         
         setTimeout(() => {
             this.setState({
-                classes: colors[this.state.index],
+                classes: COLORS[this.state.index],
                 start_time: new Date()
             });
         this.setState(prevstate => ({ index: prevstate.index + 1}));

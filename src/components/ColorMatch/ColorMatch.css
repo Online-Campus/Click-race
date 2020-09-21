@@ -1,0 +1,25 @@
+.box {
+    width: 5rem;
+    height: 3rem;
+    font-size: 2rem;
+}
+
+.font-yellow {
+    color: yellow;
+}
+
+.font-green {
+    color: green;
+}
+
+.font-blue {
+    color: blue;
+}
+
+.font-pink {
+    color: pink;
+}
+
+.font-orange {
+    color: orange;
+}
