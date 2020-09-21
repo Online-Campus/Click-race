@@ -12,9 +12,9 @@ const ColorMatch = () => {
             () => {
                 setName(COLORS[Math.floor(Math.random() * (COLORS.length-1))])
                 setColor(COLORS[Math.floor(Math.random() * (COLORS.length-1))])
-                return () => clearInterval(timer);
             }, 
             1000)
+            return () => clearInterval(timer)
     },[])
 
     const check = () => {
