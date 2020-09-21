@@ -21,9 +21,9 @@ class OrderClick extends Component {
     }
 
     handleClick = index => {
-        const { list } = this.state
+        const { list, index } = this.state
 
-        if (this.state.expected === list[index]) {
+        if (this.state.expected === list[index] && index < maxGames) {
             this.setState({
                 expected: list[ Math.floor(Math.random()*8) ],
             })
@@ -56,7 +56,9 @@ class OrderClick extends Component {
         let time = new Date() - this.state.start_time 
         this.setState(prevstate => ({ total_time: prevstate.total_time + time}), () => {
             if(this.state.index  == maxGames) {
-                alert('Total time = ' + this.state.total_time + 'ms')
+                const message = 'Total time = ' + this.state.total_time + 'ms, ' + 
+                                (this.state.total_time > time) ? ('You Lost') : ('You Won')
+                alert(message)
                 this.setState({
                     visible: false,
                     start_time: new Date(),
