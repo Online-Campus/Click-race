@@ -12,7 +12,8 @@ class ColorGame extends Component {
             time: 4000,
             classes: "",
             total_time: 0,
-            index: 0
+            index: 0,
+            penalty: true
         };
     }
 
@@ -24,7 +25,9 @@ class ColorGame extends Component {
         setTimeout(() => {
             this.setState({
                 classes: colors[this.state.index],
-                start_time: new Date()
+                start_time: new Date(),
+                penalty: false
+
             });
         this.setState(prevstate => ({ index: prevstate.index + 1}));
 
@@ -34,11 +37,16 @@ class ColorGame extends Component {
     }
 
     game = () => {
-        let time = new Date() - this.state.start_time;
-        console.log('time', time);
-        this.setState(prevstate => ({ total_time: prevstate.total_time + time}));
-        this.setState({classes: ""});
-        this.start();
+        if(penalty){
+            this.setState(prevstate => ({ total_time: prevstate.total_time + 1000}));
+        }
+        else{
+            let time = new Date() - this.state.start_time;
+            console.log('time', time);
+            this.setState(prevstate => ({ total_time: prevstate.total_time + time}));
+            this.setState({classes: ""});
+            this.start();
+        }
     }
 
 
