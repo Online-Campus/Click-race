@@ -1,0 +1,22 @@
+.box {
+    border-style: solid;
+}
+
+.text {
+    text-align: center;
+    margin: 3rem;
+    font-size: larger;
+    color: black;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.pink {
+    background-color: pink;
+}
