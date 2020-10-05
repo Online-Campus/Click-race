@@ -12,13 +12,16 @@ class ColorText extends Component {
             text: 'Blue',
             classcolor: 'pink',
             count: 1,
-            next: 1
+            next: 1,
+            start_time: new Date(),
+            penalty: 0,
         };
     }
 
     startgame = () => {
         this.setState({
-            visible: true
+            visible: true,
+            start_time: new Date()
         });
         this.started();
     }
@@ -50,10 +53,20 @@ class ColorText extends Component {
                 count: 0,
             })
         }
+        else{
+            this.setState(prevState => ({
+                penalty: prevState.penalty + 1000,
+            }));
+            this.setState({
+                count: 0,
+            })
+        }
         if(this.state.next === 5) {
             this.setState({
                 visible: false
             })
+            let finalTime = new Date() - this.state.start_time + penalty;
+            alert(`Great your time is ${finalTime}`)
         }
     }
 
